@@ -1,0 +1,21 @@
+.auth-form {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+}
+
+.auth-form h2 {
+    text-align: center;
+}
+
+.auth-form p {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.auth-form a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}

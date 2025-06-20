@@ -1,0 +1,20 @@
+{
+  "name": "venda-de-games",
+  "version": "1.0.0",
+  "description": "Projeto de site para venda de jogos digitais e acessórios.",
+  "main": "index.html",
+  "scripts": {
+  "start": "concurrently \"npm:start:server\" \"npm:start:open\"",
+  "start:server": "json-server --watch db.json --static . --port 3000",
+  "start:open": "wait-on http://localhost:3000 && open-cli http://localhost:3000",
+  "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vitor Marquez",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "json-server": "^0.17.4",
+    "open-cli": "^8.0.0",
+    "wait-on": "^8.0.3"
+  }
+}

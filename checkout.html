@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - GameStore</title>
+    <link rel="stylesheet" href="assets/styles/global.css">
+    <link rel="stylesheet" href="assets/styles/auth.css">
+    <link rel="stylesheet" href="assets/styles/checkout.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">GameStore</a>
+        <nav id="nav-links"></nav>
+    </header>
+    <main class="container">
+        <h1>Finalizar Compra</h1>
+        <div class="checkout-layout">
+            <div id="order-summary" class="auth-form">
+                <h2>Resumo do Pedido</h2>
+                <div id="summary-items"></div>
+                <hr>
+                <div id="summary-total"></div>
+            </div>
+
+            <form id="checkout-form" class="auth-form">
+                <h2>Forma de Pagamento</h2>
+                <div class="payment-methods">
+                    <label><input type="radio" name="paymentMethod" value="pix" checked> Pix</label>
+                    <label><input type="radio" name="paymentMethod" value="credit"> Cartão de Crédito</label>
+                    <label><input type="radio" name="paymentMethod" value="debit"> Cartão de Débito</label>
+                </div>
+
+                <div id="pix-section" class="payment-section">
+                    <h4>Pague com Pix</h4>
+                    <p>Escaneie o QR Code abaixo com seu app do banco:</p>
+                    <div style="width: 160px; height: 160px; margin: 1rem auto; background: white; padding: 10px; border-radius: 8px;">
+                        <svg viewBox="0 0 45 45" style="width: 100%; height: 100%; shape-rendering: crispEdges;">
+                            <path fill="#000000" d="M0 0h7v7H0zM8 0h1v1H8zM10 0h2v1h-2zM13 0h1v1h-1zM15 0h1v1h-1zM17 0h1v1h-1zM19 0h1v1h-1zM21 0h1v1h-1zM24 0h1v1h-1zM26 0h1v1h-1zM28 0h1v1h-1zM30 0h1v1h-1zM32 0h2v1h-2zM38 0h7v7H38zM0 1h1v1H0zM6 1h1v1H6zM8 1h1v1H8zM10 1h1v1h-1zM14 1h1v1h-1zM16 1h2v1h-2zM19 1h1v1h-1zM22 1h1v1h-1zM24 1h1v1h-1zM28 1h1v1h-1zM30 1h2v1h-2zM35 1h1v1h-1zM38 1h1v1h-1zM44 1h1v1h-1zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM8 2h1v1H8zM11 2h1v1h-1zM13 2h2v1h-2zM16 2h1v1h-1zM19 2h1v1h-1zM21 2h1v1h-1zM24 2h1v1h-1zM27 2h1v1h-1zM29 2h1v1h-1zM31 2h2v1h-2zM33 2h1v1h-1zM36 2h1v1h-1zM38 2h1v1h-1zM40 2h3v1h-3zM44 2h1v1h-1zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM8 3h1v1H8zM10 3h1v1h-1zM14 3h1v1h-1zM17 3h2v1h-2zM21 3h2v1h-2zM24 3h1v1h-1zM28 3h2v1h-2zM32 3h1v1h-1zM34 3h2v1h-2zM38 3h1v1h-1zM40 3h3v1h-3zM44 3h1v1h-1zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM8 4h1v1H8zM10 4h2v1h-2zM15 4h1v1h-1zM17 4h1v1h-1zM20 4h1v1h-1zM22 4h2v1h-2zM25 4h1v1h-1zM27 4h1v1h-1zM29 4h2v1h-2zM32 4h1v1h-1zM35 4h2v1h-2zM38 4h1v1h-1zM40 4h3v1h-3zM44 4h1v1h-1zM0 5h1v1H0zM6 5h1v1H6zM8 5h1v1H8zM10 5h1v1h-1zM12 5h1v1h-1zM14 5h2v1h-2zM17 5h2v1h-2zM21 5h1v1h-1zM24 5h1v1h-1zM26 5h1v1h-1zM28 5h1v1h-1zM33 5h1v1h-1zM38 5h1v1h-1zM44 5h1v1h-1zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1h-1zM12 6h2v1h-2zM15 6h2v1h-2zM19 6h1v1h-1zM21 6h1v1h-1zM23 6h2v1h-2zM27 6h1v1h-1zM31 6h1v1h-1zM38 6h7v1H38zM1 8h1v1H1zM3 8h1v1H3zM5 8h1v1H5zM8 8h1v1H8zM10 8h2v1h-2zM13 8h1v1h-1zM15 8h1v1h-1zM17 8h1v1h-1zM19 8h2v1h-2zM22 8h1v1h-1zM24 8h2v1h-2zM27 8h1v1h-1zM30 8h1v1h-1zM32 8h1v1h-1zM34 8h2v1h-2zM38 8h1v1h-1zM40 8h2v1h-2zM0 9h2v1H0zM4 9h1v1H4zM6 9h1v1H6zM10 9h1v1h-1zM14 9h1v1h-1zM16 9h1v1h-1zM19 9h1v1h-1zM21 9h1v1h-1zM24 9h1v1h-1zM26 9h1v1h-1zM28 9h2v1h-2zM33 9h2v1h-2zM36 9h1v1h-1zM38 9h1v1h-1zM43 9h1v1h-1zM1 10h1v1H1zM3 10h1v1H3zM5 10h1v1H5zM8 10h2v1H8zM12 10h1v1h-1zM14 10h2v1h-2zM17 10h1v1h-1zM22 10h1v1h-1zM25 10h2v1h-2zM28 10h1v1h-1zM30 10h1v1h-1zM32 10h1v1h-1zM34 10h1v1h-1zM37 10h2v1h-2zM40 10h1v1h-1zM42 10h1v1h-1zM2 11h1v1H2zM4 11h1v1H4zM6 11h1v1H6zM9 11h1v1H9zM12 11h1v1h-1zM14 11h1v1h-1zM17 11h1v1h-1zM19 11h2v1h-2zM22 11h2v1h-2zM27 11h1v1h-1zM31 11h1v1h-1zM33 11h1v1h-1zM35 11h1v1h-1zM38 11h2v1h-2zM41 11h1v1h-1zM43 11h2v1h-2zM0 12h2v1H0zM3 12h2v1H3zM6 12h1v1H6zM8 12h2v1H8zM13 12h1v1h-1zM15 12h1v1h-1zM19 12h1v1h-1zM21 12h1v1h-1zM23 12h2v1h-2zM28 12h2v1h-2zM32 12h1v1h-1zM34 12h2v1h-2zM37 12h2v1h-2zM42 12h1v1h-1zM0 13h1v1H0zM5 13h1v1H5zM10 13h1v1h-1zM12 13h1v1h-1zM14 13h1v1h-1zM16 13h3v1h-3zM21 13h2v1h-2zM24 13h1v1h-1zM26 13h1v1h-1zM28 13h1v1h-1zM31 13h1v1h-1zM33 13h1v1h-1zM35 13h1v1h-1zM39 13h1v1h-1zM41 13h2v1h-2zM44 13h1v1h-1zM2 14h1v1H2zM4 14h1v1H4zM6 14h2v1H6zM10 14h1v1h-1zM13 14h1v1h-1zM15 14h2v1h-2zM18 14h1v1h-1zM21 14h1v1h-1zM23 14h1v1h-1zM26 14h1v1h-1zM28 14h2v1h-2zM33 14h2v1h-2zM36 14h1v1h-1zM38 14h1v1h-1zM40 14h2v1h-2zM43 14h1v1h-1zM1 15h1v1H1zM4 15h1v1H4zM6 15h1v1H6zM8 15h2v1H8zM12 15h1v1h-1zM14 15h1v1h-1zM16 15h1v1h-1zM18 15h1v1h-1zM20 15h1v1h-1zM22 15h1v1h-1zM24 15h1v1h-1zM27 15h1v1h-1zM29 15h1v1h-1zM31 15h1v1h-1zM33 15h1v1h-1zM35 15h1v1h-1zM37 15h2v1h-2zM40 15h1v1h-1zM42 15h1v1h-1zM0 16h1v1H0zM3 16h1v1H3zM5 16h2v1H5zM8 16h1v1H8zM10 16h1v1h-1zM13 16h1v1h-1zM17 16h1v1h-1zM21 16h1v1h-1zM23 16h1v1h-1zM26 16h1v1h-1zM28 16h1v1h-1zM32 16h1v1h-1zM34 16h1v1h-1zM36 16h1v1h-1zM38 16h1v1h-1zM42 16h2v1h-2zM1 17h1v1H1zM3 17h1v1H3zM6 17h1v1H6zM11 17h1v1h-1zM14 17h1v1h-1zM16 17h2v1h-2zM19 17h1v1h-1zM22 17h1v1h-1zM24 17h1v1h-1zM26 17h2v1h-2zM30 17h1v1h-1zM32 17h2v1h-2zM35 17h1v1h-1zM37 17h1v1h-1zM40 17h1v1h-1zM42 17h2v1h-2zM1 18h1v1H1zM3 18h2v1H3zM6 18h1v1H6zM8 18h2v1H8zM11 18h1v1h-1zM13 18h2v1h-2zM16 18h1v1h-1zM19 18h1v1h-1zM22 18h2v1h-2zM26 18h1v1h-1zM30 18h1v1h-1zM32 18h1v1h-1zM36 18h1v1h-1zM40 18h2v1h-2zM1 19h1v1H1zM3 19h1v1H3zM5 19h1v1H5zM7 19h1v1H7zM10 19h2v1h-2zM13 19h1v1h-1zM15 19h1v1h-1zM18 19h2v1h-2zM21 19h1v1h-1zM23 19h2v1h-2zM26 19h1v1h-1zM29 19h1v1h-1zM33 19h2v1h-2zM38 19h2v1h-2zM42 19h1v1h-1zM1 20h2v1H1zM5 20h1v1H5zM8 20h1v1H8zM10 20h1v1h-1zM13 20h1v1h-1zM15 20h1v1h-1zM18 20h1v1h-1zM22 20h1v1h-1zM24 20h1v1h-1zM26 20h1v1h-1zM28 20h2v1h-2zM31 20h1v1h-1zM34 20h1v1h-1zM36 20h1v1h-1zM38 20h1v1h-1zM40 20h1v1h-1zM43 20h1v1h-1zM3 21h1v1H3zM6 21h2v1H6zM9 21h1v1H9zM11 21h2v1h-2zM14 21h2v1h-2zM17 21h1v1h-1zM20 21h1v1h-1zM22 21h1v1h-1zM24 21h3v1h-3zM28 21h1v1h-1zM32 21h2v1h-2zM36 21h2v1h-2zM39 21h1v1h-1zM42 21h1v1h-1zM0 22h1v1H0zM3 22h2v1H3zM6 22h2v1H6zM9 22h2v1H9zM12 22h1v1h-1zM14 22h1v1h-1zM16 22h1v1h-1zM18 22h1v1h-1zM21 22h2v1h-2zM24 22h1v1h-1zM26 22h2v1h-2zM30 22h1v1h-1zM34 22h1v1h-1zM38 22h1v1h-1zM40 22h1v1h-1zM43 22h1v1h-1zM1 23h2v1H1zM4 23h1v1H4zM6 23h1v1H6zM11 23h1v1h-1zM13 23h2v1h-2zM17 23h1v1h-1zM22 23h1v1h-1zM25 23h1v1h-1zM27 23h1v1h-1zM30 23h1v1h-1zM33 23h2v1h-2zM36 23h2v1h-2zM40 23h1v1h-1zM43 23h2v1h-2zM0 24h1v1H0zM3 24h1v1H3zM6 24h1v1H6zM8 24h2v1H8zM12 24h1v1h-1zM15 24h2v1h-2zM18 24h1v1h-1zM20 24h1v1h-1zM22 24h2v1h-2zM25 24h1v1h-1zM28 24h1v1h-1zM30 24h2v1h-2zM33 24h1v1h-1zM37 24h1v1h-1zM39 24h1v1h-1zM42 24h1v1h-1zM3 25h1v1H3zM5 25h1v1H5zM8 25h1v1H8zM10 25h1v1h-1zM13 25h2v1h-2zM17 25h1v1h-1zM19 25h2v1h-2zM23 25h1v1h-1zM26 25h1v1h-1zM28 25h1v1h-1zM30 25h1v1h-1zM32 25h2v1h-2zM35 25h1v1h-1zM37 25h2v1h-2zM41 25h1v1h-1zM43 25h1v1h-1zM2 26h1v1H2zM4 26h1v1H4zM6 26h2v1H6zM9 26h2v1H9zM12 26h1v1h-1zM15 26h1v1h-1zM18 26h1v1h-1zM20 26h1v1h-1zM22 26h1v1h-1zM26 26h1v1h-1zM30 26h2v1h-2zM33 26h1v1h-1zM36 26h1v1h-1zM39 26h2v1h-2zM42 26h1v1h-1zM2 27h2v1H2zM5 27h1v1H5zM9 27h1v1H9zM12 27h2v1h-2zM15 27h1v1h-1zM19 27h1v1h-1zM22 27h1v1h-1zM24 27h2v1h-2zM27 27h2v1h-2zM31 27h2v1h-2zM34 27h1v1h-1zM36 27h1v1h-1zM38 27h1v1h-1zM43 27h1v1h-1zM1 28h1v1H1zM3 28h2v1H3zM6 28h1v1H6zM8 28h2v1H8zM13 28h1v1h-1zM15 28h1v1h-1zM17 28h1v1h-1zM19 28h1v1h-1zM21 28h1v1h-1zM23 28h1v1h-1zM27 28h1v1h-1zM29 28h1v1h-1zM31 28h1v1h-1zM35 28h1v1h-1zM38 28h1v1h-1zM40 28h1v1h-1zM42 28h2v1h-2zM3 29h1v1H3zM5 29h2v1H5zM8 29h2v1H8zM11 29h2v1h-2zM14 29h1v1h-1zM17 29h1v1h-1zM20 29h2v1h-2zM23 29h1v1h-1zM27 29h2v1h-2zM30 29h1v1h-1zM33 29h1v1h-1zM37 29h2v1h-2zM42 29h1v1h-1zM38 30h1v1h-1zM40 30h1v1h-1zM43 30h2v1h-2zM1 31h1v1H1zM4 31h1v1H4zM6 31h2v1H6zM9 31h1v1H9zM11 31h1v1h-1zM13 31h1v1h-1zM15 31h1v1h-1zM19 31h1v1h-1zM22 31h2v1h-2zM25 31h1v1h-1zM27 31h1v1h-1zM30 31h1v1h-1zM32 31h1v1h-1zM35 31h2v1h-2zM38 31h1v1h-1zM41 31h1v1h-1zM43 31h1v1h-1zM0 32h1v1H0zM3 32h1v1H3zM5 32h1v1H5zM8 32h2v1H8zM11 32h1v1h-1zM14 32h1v1h-1zM16 32h1v1h-1zM18 32h2v1h-2zM21 32h1v1h-1zM23 32h1v1h-1zM26 32h1v1h-1zM29 32h1v1h-1zM31 32h1v1h-1zM34 32h1v1h-1zM36 32h2v1h-2zM39 32h1v1h-1zM42 32h2v1h-2zM2 33h1v1H2zM4 33h1v1H4zM6 33h1v1H6zM8 33h1v1H8zM10 33h1v1h-1zM14 33h1v1h-1zM16 33h1v1h-1zM20 33h1v1h-1zM23 33h1v1h-1zM25 33h1v1h-1zM28 33h1v1h-1zM30 33h2v1h-2zM33 33h1v1h-1zM35 33h1v1h-1zM39 33h1v1h-1zM41 33h1v1h-1zM0 34h2v1H0zM5 34h1v1H5zM8 34h1v1H8zM10 34h1v1h-1zM13 34h1v1h-1zM17 34h1v1h-1zM19 34h2v1h-2zM22 34h1v1h-1zM24 34h1v1h-1zM26 34h2v1h-2zM29 34h1v1h-1zM32 34h2v1h-2zM36 34h2v1h-2zM39 34h2v1h-2zM42 34h1v1h-1zM2 35h1v1H2zM4 35h2v1H4zM7 35h1v1H7zM10 35h2v1h-2zM13 35h1v1h-1zM15 35h2v1h-2zM18 35h1v1h-1zM21 35h2v1h-2zM24 35h1v1h-1zM28 35h1v1h-1zM30 35h2v1h-2zM33 35h1v1h-1zM35 35h1v1h-1zM38 35h1v1h-1zM42 35h1v1h-1zM44 35h1v1h-1zM3 36h1v1H3zM6 36h1v1H6zM8 36h1v1H8zM11 36h1v1h-1zM13 36h2v1h-2zM16 36h1v1h-1zM18 36h2v1h-2zM21 36h1v1h-1zM25 36h2v1h-2zM28 36h2v1h-2zM31 36h1v1h-1zM33 36h2v1h-2zM38 36h1v1h-1zM40 36h2v1h-2zM43 36h1v1h-1zM1 37h2v1H1zM5 37h2v1H5zM9 37h1v1H9zM12 37h2v1h-2zM15 37h1v1h-1zM17 37h1v1h-1zM21 37h2v1h-2zM24 37h1v1h-1zM27 37h2v1h-2zM31 37h2v1h-2zM34 37h1v1h-1zM37 37h2v1h-2zM40 37h1v1h-1zM42 37h1v1h-1zM38 38h7v7H38zM0 38h7v7H0zM6 38h1v1H6zM38 38h1v1h-1zM44 38h1v1h-1zM0 39h1v1H0zM6 39h1v1H6zM38 39h1v1h-1zM44 39h1v1h-1zM0 40h1v1H0zM2 40h3v1H2zM6 40h1v1H6zM38 40h1v1h-1zM40 40h3v1h-3zM44 40h1v1h-1zM0 41h1v1H0zM2 41h3v1H2zM6 41h1v1H6zM38 41h1v1h-1zM40 41h3v1h-3zM44 41h1v1h-1zM0 42h1v1H0zM2 42h3v1H2zM6 42h1v1H6zM38 42h1v1h-1zM40 42h3v1h-3zM44 42h1v1h-1zM0 43h1v1H0zM6 43h1v1H6zM38 43h1v1h-1zM44 43h1v1h-1zM0 44h7v1H0zM38 44h7v1H38z" />
+                        </svg>
+                    </div>
+                    <p style="text-align: center; font-size: 0.9em;">Ou copie o código:</p>
+                    <input type="text" value="00020126580014br.gov.bcb.pix0136..." readonly>
+                </div>
+
+                <div id="card-section" class="payment-section" style="display: none;">
+                    <div class="form-group">
+                        <label for="card-number">Número do Cartão</label>
+                        <input type="text" id="card-number" placeholder="0000 0000 0000 0000">
+                    </div>
+                    <div class="form-group">
+                        <label for="card-name">Nome no Cartão</label>
+                        <input type="text" id="card-name" placeholder="Como impresso no cartão">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card-expiry">Validade (MM/AA)</label>
+                            <input type="text" id="card-expiry" placeholder="12/28">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-cvv">CVV</label>
+                            <input type="text" id="card-cvv" placeholder="123">
+                        </div>
+                    </div>
+                     <div class="form-group" id="installments-group">
+                        <label for="installments">Parcelas</label>
+                        <select id="installments">
+                            <option value="1">1x sem juros</option>
+                            <option value="2">2x sem juros</option>
+                            <option value="3">3x sem juros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Pagar e Finalizar</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 GameStore. Todos os direitos reservados.</p>
+    </footer>
+    <script src="assets/scripts/checkout.js"></script>
+</body>
+</html>

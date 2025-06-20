@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Teste de Redirecionamento</title>
+</head>
+<body>
+
+    <h1 style="color: blue;">Página de Teste</h1>
+    <p>O objetivo é simples: clicar no botão abaixo e ser redirecionado para "login.html".</p>
+
+    <button id="botaoDeTeste" style="font-size: 20px; padding: 15px;">
+        Clique Aqui para Redirecionar
+    </button>
+
+    <script>
+        // Pega o elemento do botão pelo seu ID
+        const botao = document.getElementById('botaoDeTeste');
+
+        // Adiciona um "ouvinte" que espera pelo clique no botão
+        botao.addEventListener('click', function() {
+            
+            // 1. Primeiro, vamos avisar que o clique funcionou
+            console.log('O botão foi clicado com sucesso!');
+            alert('O clique foi detectado. Preparando para redirecionar...');
+
+            // 2. Agora, executamos o comando de redirecionamento
+            window.location.href = 'login.html';
+
+            // 3. Esta mensagem só aparecerá se o redirecionamento falhar por algum motivo
+            console.log('O comando de redirecionamento foi enviado.');
+
+        });
+    </script>
+
+</body>
+</html>

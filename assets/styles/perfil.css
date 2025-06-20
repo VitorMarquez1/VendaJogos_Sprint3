@@ -1,0 +1,44 @@
+.profile-section {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-radius: 8px;
+}
+
+.order {
+    border-bottom: 1px solid var(--light-gray);
+    padding: 1rem 0;
+}
+.order:last-child {
+    border-bottom: none;
+}
+.order-header {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+.order-item {
+    padding-left: 1rem;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+/* Reutilizando a classe da homepage para consistência */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* Container para alinhar os botões na wishlist */
+.wishlist-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Estilo para o botão de remover da wishlist */
+.btn-remove-wishlist {
+    background: #c0392b; /* Vermelho */
+}

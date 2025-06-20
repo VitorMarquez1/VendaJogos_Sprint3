@@ -1,0 +1,25 @@
+.checkout-layout {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+#order-summary, #checkout-form {
+    flex: 1;
+    min-width: 300px;
+}
+.payment-methods {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+}
+.payment-section img {
+    border-radius: 8px;
+}
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+.form-row .form-group {
+    flex: 1;
+}

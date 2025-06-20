@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GameStore</title>
+    <link rel="stylesheet" href="assets/styles/global.css">
+    <link rel="stylesheet" href="assets/styles/auth.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">GameStore</a>
+        <nav id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="carrinho.html">Carrinho</a>
+            <a href="login.html">Login</a>
+            <a href="cadastro.html">Cadastro</a>
+        </nav>
+    </header>
+    <main class="container">
+        <form id="login-form" class="auth-form">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="btn">Entrar</button>
+            <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 GameStore. Todos os direitos reservados.</p>
+    </footer>
+    <script src="assets/scripts/auth.js"></script>
+</body>
+</html>

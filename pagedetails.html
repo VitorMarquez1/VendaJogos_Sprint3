@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto</title>
+    <link rel="stylesheet" href="assets/styles/global.css">
+    <link rel="stylesheet" href="assets/styles/details.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">GameStore</a>
+        <nav id="nav-links">
+            </nav>
+    </header>
+
+    <main>
+        <div id="product-details-container" class="container">
+            </div>
+        
+        <section id="reviews-section" class="container">
+            <h2>Avaliações</h2>
+            <div id="reviews-list">
+                </div>
+            <form id="review-form">
+                <h3>Deixe sua Avaliação</h3>
+                <div class="form-group">
+                    <label for="rating">Nota (1 a 5)</label>
+                    <select id="rating" required>
+                        <option value="5">5 Estrelas</option>
+                        <option value="4">4 Estrelas</option>
+                        <option value="3">3 Estrelas</option>
+                        <option value="2">2 Estrelas</option>
+                        <option value="1">1 Estrela</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comentário</label>
+                    <textarea id="comment" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Avaliação</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 GameStore. Todos os direitos reservados.</p>
+    </footer>
+    <script src="assets/scripts/details.js"></script>
+</body>
+</html>

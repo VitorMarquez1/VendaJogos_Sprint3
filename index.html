@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameStore - Home</title>
+    <link rel="stylesheet" href="assets/styles/global.css">
+    <link rel="stylesheet" href="assets/styles/homepage.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">GameStore</a>
+        <nav id="nav-links">
+            </nav>
+    </header>
+
+    <main>
+        <section class="search-filter-section">
+            <h2>Explore nosso Catálogo</h2>
+            <div class="filters">
+                <input type="text" id="searchInput" placeholder="Buscar por nome...">
+                <select id="categoryFilter">
+                    <option value="all">Todas as Categorias</option>
+                    <option value="jogo">Jogos</option>
+                    <option value="acessorio">Acessórios</option>
+                </select>
+                <select id="genreFilter" class="specific-filter" style="display: none;">
+                    <option value="all">Todos os Gêneros</option>
+                </select>
+                <select id="typeFilter" class="specific-filter" style="display: none;">
+                    <option value="all">Todos os Tipos</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="product-catalog" class="product-grid container"></section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 GameStore. Todos os direitos reservados.</p>
+    </footer>
+    <script src="assets/scripts/principal.js"></script>
+</body>
+</html>

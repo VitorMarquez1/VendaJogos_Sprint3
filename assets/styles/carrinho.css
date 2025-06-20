@@ -1,0 +1,77 @@
+.cart-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--surface-color);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--secondary-color);
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 1rem;
+}
+
+.cart-item-info {
+    flex-grow: 1;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cart-item-quantity input {
+    width: 50px;
+    text-align: center;
+}
+
+.btn-quantity, .btn-remove {
+    background: var(--light-gray);
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.btn-remove {
+    background-color: #c0392b;
+    margin-left: 1rem;
+}
+
+#cart-summary {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    text-align: right;
+}
+
+#subtotal, #total-price {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+#total-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--success-color);
+}
+
+.coupon-area {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+#checkout-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}

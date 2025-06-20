@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1000001,
+    "name": "Headset Gamer HyperX Cloud II",
+    "price": 499.9,
+    "description": "Conforto e qualidade de som imersivos com som surround 7.1.",
+    "image": "https://m.media-amazon.com/images/I/71pz2njkNRL._AC_SX679_.jpg",
+    "category": "acessorio",
+    "type": "Headset",
+    "platform": "Multiplataforma",
+    "stock": 15,
+    "reviews": []
+  },
+  {
+    "id": 1000002,
+    "name": "Controle DualSense - PS5",
+    "price": 429.9,
+    "description": "Explore novas fronteiras com o feedback tátil e gatilhos adaptáveis.",
+    "image": "https://m.media-amazon.com/images/I/41ep9IdP-jL._AC_SX679_.jpg",
+    "category": "acessorio",
+    "type": "Controle",
+    "platform": "PS5",
+    "stock": 20,
+    "reviews": []
+  },
+  {
+    "id": 1000003,
+    "name": "Mouse Gamer Logitech G502 Hero",
+    "price": 249.5,
+    "description": "Sensor óptico de alta precisão com 25.600 DPI e 11 botões programáveis.",
+    "image": "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SX679_.jpg",
+    "category": "acessorio",
+    "type": "Mouse",
+    "platform": "PC",
+    "stock": 30,
+    "reviews": []
+  },
+  {
+    "id": 1000004,
+    "name": "Teclado Mecânico Redragon Kumara",
+    "price": 289.99,
+    "description": "Design compacto TKL com switches Outemu Blue e iluminação RGB.",
+    "image": "https://m.media-amazon.com/images/I/51aZ6eBk7LL.__AC_SX300_SY300_QL70_ML2_.jpg",
+    "category": "acessorio",
+    "type": "Teclado",
+    "platform": "PC",
+    "stock": 25,
+    "reviews": []
+  },
+  {
+    "id": 1000005,
+    "name": "Volante Logitech G29 Driving Force",
+    "price": 1899.9,
+    "description": "Sinta cada curva com o force feedback realista. Inclui pedais.",
+    "image": "https://m.media-amazon.com/images/I/61j1ZCgzQRL._AC_SX425_.jpg",
+    "category": "acessorio",
+    "type": "Volante",
+    "platform": "PC / PS4 / PS5",
+    "stock": 10,
+    "reviews": []
+  },
+  {
+    "id": 1000006,
+    "name": "Cadeira Gamer DT3 Sports Elise",
+    "price": 999.0,
+    "description": "Conforto ergonômico com design inspirado em corridas e ajuste de inclinação.",
+    "image": "https://acdn-us.mitiendanube.com/stores/002/007/282/products/gx_v2-blue_02-f5d8365f9ab4e8ef3c17410288711345-1024-1024.jpg",
+    "category": "acessorio",
+    "type": "Cadeira",
+    "platform": "N/A",
+    "stock": 12,
+    "reviews": []
+  },
+  {
+    "id": 1000007,
+    "name": "SSD Externo WD Black P10 2TB",
+    "price": 749.9,
+    "description": "Leve sua biblioteca de jogos para onde for. Armazenamento de alta velocidade.",
+    "image": "https://m.media-amazon.com/images/I/81o5zJ+FcPL._AC_SY300_SX300_.jpg",
+    "category": "acessorio",
+    "type": "Armazenamento",
+    "platform": "PC / PS4 / Xbox One",
+    "stock": 18,
+    "reviews": []
+  },
+  {
+    "id": 1000008,
+    "name": "Webcam Logitech C920s Pro HD",
+    "price": 399.9,
+    "description": "Webcam Full HD 1080p ideal para streaming de jogos, com tampa de privacidade.",
+    "image": "https://m.media-amazon.com/images/I/61SCZyiMSNL.__AC_SX300_SY300_QL70_ML2_.jpg",
+    "category": "acessorio",
+    "type": "Webcam",
+    "platform": "PC",
+    "stock": 22,
+    "reviews": []
+  },
+  {
+    "id": 1000009,
+    "name": "Mousepad Gamer HyperX Fury S",
+    "price": 129.9,
+    "description": "Superfície de tecido com costura para precisão e velocidade. Base de borracha antiderrapante.",
+    "image": "https://m.media-amazon.com/images/I/51jlC3sL0BL.__AC_SX300_SY300_QL70_ML2_.jpg",
+    "category": "acessorio",
+    "type": "Mousepad",
+    "platform": "N/A",
+    "stock": 40,
+    "reviews": []
+  },
+  {
+    "id": 1000010,
+    "name": "Microfone HyperX QuadCast S",
+    "price": 899.9,
+    "description": "Microfone condensador USB com 4 padrões polares, iluminação RGB e suporte anti-vibração.",
+    "image": "https://m.media-amazon.com/images/I/71jnF7+JQrL._AC_SY300_SX300_.jpg",
+    "category": "acessorio",
+    "type": "Microfone",
+    "platform": "PC / PS4 / PS5",
+    "stock": 15,
+    "reviews": []
+  }
+]
