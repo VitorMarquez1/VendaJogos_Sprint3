@@ -23,3 +23,11 @@
 .form-row .form-group {
     flex: 1;
 }
+
+/* NOVO: Estilo para o resultado do frete */
+#shipping-result p {
+    padding: 10px;
+    border: 1px solid var(--success-color);
+    border-radius: 5px;
+    text-align: center;
+}

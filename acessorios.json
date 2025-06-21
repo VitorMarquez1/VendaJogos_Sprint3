@@ -118,5 +118,77 @@
     "platform": "PC / PS4 / PS5",
     "stock": 15,
     "reviews": []
+  },
+  {
+    "id": 1000011,
+    "name": "Controle Xbox Series - Carbon Black",
+    "price": 459.9,
+    "description": "Design modernizado com superfícies esculpidas e geometria refinada para maior conforto durante os jogos.",
+    "image": "https://m.media-amazon.com/images/I/61qX3f8v5kL.__AC_SX300_SY300_QL70_ML2_.jpg",
+    "category": "acessorio",
+    "type": "Controle",
+    "platform": "PC / Xbox One / Xbox Series S/X",
+    "stock": 28,
+    "reviews": []
+  },
+  {
+    "id": 1000012,
+    "name": "Base de Carregamento Duplo para DualSense",
+    "price": 189.9,
+    "description": "Carregue até dois controles sem fio DualSense simultaneamente sem precisar conectá-los ao seu console PlayStation 5.",
+    "image": "https://m.media-amazon.com/images/I/41xfd4g3PZL._AC_SX679_.jpg",
+    "category": "acessorio",
+    "type": "Carregador",
+    "platform": "PS5",
+    "stock": 22,
+    "reviews": []
+  },
+  {
+    "id": 1000013,
+    "name": "Teclado Gamer HyperX Alloy Core RGB",
+    "price": 349.9,
+    "description": "Teclado de membrana com a exclusiva barra de luz HyperX e efeitos de iluminação RGB dinâmicos.",
+    "image": "https://m.media-amazon.com/images/I/51IQ2qI3cdL.__AC_SX300_SY300_QL70_ML2_.jpg",
+    "category": "acessorio",
+    "type": "Teclado",
+    "platform": "PC",
+    "stock": 18,
+    "reviews": []
+  },
+  {
+    "id": 1000014,
+    "name": "Controle Nintendo Switch Pro Controller",
+    "price": 399.0,
+    "description": "Leve suas sessões de jogo a um nível superior. Inclui controles de movimento, vibração HD e funcionalidade amiibo.",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_673674-MLA83132705893_032025-O.webp",
+    "category": "acessorio",
+    "type": "Controle",
+    "platform": "Nintendo Switch",
+    "stock": 25,
+    "reviews": []
+  },
+  {
+    "id": 1000015,
+    "name": "Arcade Stick 8BitDo para Switch e PC",
+    "price": 549.9,
+    "description": "Controle arcade de alta qualidade, perfeito para jogos de luta. Compatível com PC e Nintendo Switch.",
+    "image": "https://m.media-amazon.com/images/I/61B4K-B778L.__AC_SX300_SY300_QL70_ML2_.jpg",
+    "category": "acessorio",
+    "type": "Arcade",
+    "platform": "PC / Nintendo Switch",
+    "stock": 11,
+    "reviews": []
+  },
+  {
+    "id": 1000016,
+    "name": "Monitor Gamer Curvo Odyssey G5 Samsung 27\"",
+    "price": 1799.90,
+    "description": "Tela curva de 27 polegadas com resolução QHD, taxa de atualização de 144Hz e 1ms de tempo de resposta para uma jogabilidade fluida.",
+    "image": "https://m.media-amazon.com/images/I/61Jv+Gj6aBL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "category": "acessorio",
+    "type": "Monitor",
+    "platform": "Multiplataforma",
+    "stock": 14,
+    "reviews": []
   }
 ]

@@ -1,10 +1,14 @@
 function updateNavLinks() {
     const navLinks = document.getElementById('nav-links');
     const user = JSON.parse(localStorage.getItem('loggedInUser'));
-    
+
     if (user) {
+        // Verifica se o usuário é admin para mostrar o link de cadastro
+        const adminLink = user.admin ? '<a href="crud.html">Cadastro de Produtos</a>' : '';
+
         navLinks.innerHTML = `
             <a href="index.html">Home</a>
+            ${adminLink}
             <a href="carrinho.html">Carrinho</a>
             <a href="perfil.html">Perfil</a>
             <a href="#" id="logout-btn">Sair</a>
@@ -14,7 +18,12 @@ function updateNavLinks() {
             window.location.href = 'index.html';
         });
     } else {
-        window.location.href = 'login.html'; 
+        navLinks.innerHTML = `
+            <a href="index.html">Home</a>
+            <a href="carrinho.html">Carrinho</a>
+            <a href="login.html">Login</a>
+            <a href="cadastro.html">Cadastro</a>
+        `;
     }
 }
 
@@ -39,16 +48,55 @@ document.addEventListener('DOMContentLoaded', () => {
                 orders.reverse().forEach(order => {
                     const orderDiv = document.createElement('div');
                     orderDiv.className = 'order';
+                    
                     let itemsHtml = '';
                     order.items.forEach(item => {
-                        itemsHtml += `<div class="order-item">${item.name} (x${item.quantity})</div>`;
+                        const tokenHtml = item.category === 'jogo' && item.token
+                            ? `<div class="order-detail">Chave de Ativação: <strong>${item.token}</strong></div>`
+                            : '';
+                        itemsHtml += `<div class="order-item">${item.name} (x${item.quantity})${tokenHtml}</div>`;
                     });
+
+                    const shippingHtml = order.shippingCost > 0
+                        ? `<div class="order-detail delivery-info">Entrega para o CEP ${order.cep} (Frete: R$ ${order.shippingCost.toFixed(2)} - Prazo: ${order.shippingTime})</div>`
+                        : '';
+                    
+                    const discountHtml = order.discount > 0
+                        ? `(Desconto: -R$ ${order.discount.toFixed(2)})`
+                        : '';
+                    
+                    // NOVO: Formata a exibição da forma de pagamento
+                    let paymentHtml = '';
+                    if (order.paymentMethod) {
+                        let paymentText = '';
+                        switch (order.paymentMethod) {
+                            case 'pix':
+                                paymentText = 'Pix';
+                                break;
+                            case 'debit':
+                                paymentText = 'Cartão de Débito';
+                                break;
+                            case 'credit':
+                                if (order.installments > 1) {
+                                    const installmentValue = order.total / order.installments;
+                                    paymentText = `Cartão de Crédito em ${order.installments}x de R$ ${installmentValue.toFixed(2)}`;
+                                } else {
+                                    paymentText = 'Cartão de Crédito (1x)';
+                                }
+                                break;
+                        }
+                        paymentHtml = `<div class="order-detail payment-info">Pagamento: <strong>${paymentText}</strong></div>`;
+                    }
+
+
                     orderDiv.innerHTML = `
                         <div class="order-header">
                             <span>Pedido de: ${new Date(order.date).toLocaleDateString()}</span>
-                            <span>Total: R$ ${order.total.toFixed(2)}</span>
+                            <span>Total: R$ ${order.total.toFixed(2)} ${discountHtml}</span>
                         </div>
                         ${itemsHtml}
+                        ${shippingHtml}
+                        ${paymentHtml}
                     `;
                     orderHistoryContainer.appendChild(orderDiv);
                 });
@@ -85,19 +133,11 @@ document.addEventListener('DOMContentLoaded', () => {
             wishlistContainer.innerHTML = '<p>Sua lista de desejos está vazia.</p>';
         }
     }
-
-    // --- FUNÇÃO CORRIGIDA ---
+    
     function removeFromWishlist(productIdToRemove) {
         let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        
-        // A correção está aqui: usamos '!=' em vez de '!==' para uma comparação mais flexível
-        // ou convertemos ambos para o mesmo tipo. A abordagem mais segura é a segunda.
-        // Vamos garantir que ambos os lados da comparação sejam do mesmo tipo (string).
         const updatedWishlist = wishlist.filter(item => item.id.toString() !== productIdToRemove);
-        
         localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
-        
-        // Re-renderiza a lista para mostrar a remoção imediatamente
         renderWishlist();
     }
 

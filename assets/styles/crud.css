@@ -1,0 +1,47 @@
+.crud-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.form-section {
+    flex: 1;
+    min-width: 400px;
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.list-section {
+    flex: 2;
+    min-width: 400px;
+}
+
+.form-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-secondary { background: #555; }
+.btn-danger { background: #c0392b; }
+.btn-light { background: #777; }
+
+#product-list-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#product-list-container th,
+#product-list-container td {
+    border: 1px solid var(--light-gray);
+    padding: 0.75rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+#product-list-container th {
+    background-color: var(--primary-color);
+}

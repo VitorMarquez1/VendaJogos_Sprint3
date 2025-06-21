@@ -1,9 +1,9 @@
 const axios = require('axios');
 const fs = require('fs');
 
-const RAWG_API_KEY = '3d41ef14468645628b28ce846179e583';
+const RAWG_API_KEY = '3d41ef14468645628b28ce846179e583'; 
 const GAMES_TO_FETCH = 100;
-const PROBLEMATIC_GAME_ID = 407559; // ID do Soulcalibur (1998) que queremos excluir
+const PROBLEMATIC_GAME_ID = 407559; 
 
 const genreMap = {
     "Action": "Ação", "Indie": "Indie", "Adventure": "Aventura", "RPG": "RPG", "Strategy": "Estratégia",
@@ -25,62 +25,75 @@ async function populateDatabase() {
     }
 
     try {
-        // --- ETAPA 1: Buscar jogos da API externa ---
-        console.log(`Buscando ${GAMES_TO_FETCH} jogos da API RAWG...`);
-        let games = [];
+        // --- ETAPA 1: Ler o db.json existente para preservar usuários e pedidos ---
+        let existingUsers = [];
+        let existingOrders = [];
+        if (fs.existsSync('db.json')) {
+            console.log('Lendo db.json existente para preservar usuários e pedidos...');
+            const existingData = JSON.parse(fs.readFileSync('db.json', 'utf-8'));
+            existingUsers = existingData.users || [];
+            existingOrders = existingData.orders || [];
+        }
+
+        // --- ETAPA 2: Buscar dados dos jogos na API ---
+        console.log(`Buscando a lista dos ${GAMES_TO_FETCH} melhores jogos...`);
+        let gamesList = [];
         let page = 1;
-        while (games.length < GAMES_TO_FETCH) {
+        while (gamesList.length < GAMES_TO_FETCH) {
             const response = await axios.get(`https://api.rawg.io/api/games`, {
                 params: { key: RAWG_API_KEY, page_size: 40, page: page++, ordering: '-metacritic' }
             });
             if (response.data.results.length === 0) break;
-            games.push(...response.data.results);
+            gamesList.push(...response.data.results);
         }
-        games = games.slice(0, GAMES_TO_FETCH);
+        gamesList = gamesList.slice(0, GAMES_TO_FETCH);
+        gamesList = gamesList.filter(game => game.id !== PROBLEMATIC_GAME_ID);
 
-        // --- NOVO FILTRO PARA EXCLUIR O JOGO ---
-        const initialCount = games.length;
-        games = games.filter(game => game.id !== PROBLEMATIC_GAME_ID);
-        if(games.length < initialCount) {
-            console.log(`Jogo problemático com ID ${PROBLEMATIC_GAME_ID} foi encontrado e removido da lista.`);
-        }
+        console.log('Buscando detalhes de cada jogo...');
+        const detailPromises = gamesList.map(game =>
+            axios.get(`https://api.rawg.io/api/games/${game.id}`, { params: { key: RAWG_API_KEY } })
+        );
+        const detailResponses = await Promise.all(detailPromises);
+        const gamesWithDetails = detailResponses.map(response => response.data);
+        console.log('Detalhes dos jogos obtidos com sucesso.');
 
-        const processedGames = games.map(game => {
-            const imageUrl = game.background_image || 
-                             (game.short_screenshots && game.short_screenshots.length > 0 ? game.short_screenshots[0].image : null);
+        const processedGames = gamesWithDetails.map(game => {
+            const developer = game.developers && game.developers.length > 0 ? game.developers[0].name : 'desenvolvedor não informado';
+            const releaseDate = game.released ? new Date(game.released).toLocaleDateString('pt-BR') : 'data não informada';
+            const mainGenre = game.genres && game.genres.length > 0 ? (genreMap[game.genres[0].name] || game.genres[0].name) : 'gênero não informado';
+            
+            const creativeDescription = `Explore o mundo de ${game.name}, um aclamado jogo do gênero ${mainGenre} desenvolvido pela ${developer}. ` +
+                                      `Lançado em ${releaseDate}, este título conquistou a crítica, alcançando a impressionante nota ${game.metacritic || 'N/A'} no Metacritic.`;
 
             return {
                 id: game.id, name: game.name, price: parseFloat(getRandomPrice(50, 350)),
-                description: `Um jogo aclamado com nota ${game.metacritic || 'N/A'} no Metacritic. Lançado em ${new Date(game.released).toLocaleDateString()}.`,
-                image: imageUrl, category: 'jogo', genre: (genreMap[game.genres[0]?.name] || 'N/A'),
-                platform: game.platforms.map(p => p.platform.name).join(' / '),
-                stock: Math.floor(Math.random() * 50) + 10, reviews: []
+                description: creativeDescription, image: game.background_image, category: 'jogo',
+                genre: mainGenre, platform: game.platforms.map(p => p.platform.name).join(' / '),
+                stock: Math.floor(Math.random() * 50) + 10, reviews: [], featured: false
             };
         });
         console.log(`${processedGames.length} jogos foram processados.`);
 
-        // --- ETAPA 2: Ler a lista de acessórios do arquivo local 'acessorios.json' ---
+        // --- ETAPA 3: Ler a lista de acessórios do arquivo local ---
         console.log("Lendo a lista de acessórios de 'acessorios.json'...");
-        let accessories = [];
-        if (fs.existsSync('acessorios.json')) {
-            const accessoriesData = fs.readFileSync('acessorios.json');
-            accessories = JSON.parse(accessoriesData);
-            console.log(`${accessories.length} acessórios foram carregados do arquivo.`);
-        } else {
-            console.warn("Aviso: Arquivo 'acessorios.json' não encontrado.");
-        }
+        const accessories = fs.existsSync('acessorios.json') ? JSON.parse(fs.readFileSync('acessorios.json')) : [];
+        if (accessories.length > 0) console.log(`${accessories.length} acessórios foram carregados.`);
 
-        // --- ETAPA 3: Juntar tudo e salvar ---
+        // --- ETAPA 4: Juntar tudo e salvar, PRESERVANDO USUÁRIOS E PEDIDOS ---
         const allProducts = [...processedGames, ...accessories];
-        const finalDatabase = { products: allProducts, users: [], orders: [] };
+        const finalDatabase = { 
+            products: allProducts, 
+            users: existingUsers, 
+            orders: existingOrders 
+        };
 
-        console.log('Gerando o arquivo final db.json...');
+        console.log('Gerando o arquivo final db.json com usuários e pedidos preservados...');
         fs.writeFileSync('db.json', JSON.stringify(finalDatabase, null, 2));
 
-        console.log(`\nSUCESSO! 🚀 O arquivo db.json foi atualizado com ${allProducts.length} produtos no total.`);
+        console.log(`\nSUCESSO! 🚀 O arquivo db.json foi atualizado com ${allProducts.length} produtos.`);
 
     } catch (error) {
-        console.error('\nOcorreu um erro geral:', error.message);
+        console.error('\nOcorreu um erro geral:', error.response ? error.response.data : error.message);
     }
 }
 

@@ -1,10 +1,14 @@
 function updateNavLinks() {
     const navLinks = document.getElementById('nav-links');
     const user = JSON.parse(localStorage.getItem('loggedInUser'));
-    
+
     if (user) {
+        // Verifica se o usuário é admin para mostrar o link de cadastro
+        const adminLink = user.admin ? '<a href="crud.html">Cadastro de Produtos</a>' : '';
+
         navLinks.innerHTML = `
             <a href="index.html">Home</a>
+            ${adminLink}
             <a href="carrinho.html">Carrinho</a>
             <a href="perfil.html">Perfil</a>
             <a href="#" id="logout-btn">Sair</a>

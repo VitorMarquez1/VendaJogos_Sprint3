@@ -4,41 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameStore - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles/global.css">
     <link rel="stylesheet" href="assets/styles/homepage.css">
 </head>
 <body>
     <header>
         <a href="index.html" class="logo">GameStore</a>
-        <nav id="nav-links">
-            </nav>
+        <nav id="nav-links"></nav>
     </header>
 
-    <main>
-        <section class="search-filter-section">
-            <h2>Explore nosso Catálogo</h2>
-            <div class="filters">
-                <input type="text" id="searchInput" placeholder="Buscar por nome...">
-                <select id="categoryFilter">
-                    <option value="all">Todas as Categorias</option>
-                    <option value="jogo">Jogos</option>
-                    <option value="acessorio">Acessórios</option>
-                </select>
-                <select id="genreFilter" class="specific-filter" style="display: none;">
-                    <option value="all">Todos os Gêneros</option>
-                </select>
-                <select id="typeFilter" class="specific-filter" style="display: none;">
-                    <option value="all">Todos os Tipos</option>
-                </select>
+    <main class="container">
+        <section id="featured-section" class="my-4">
+            <h2>Itens em Destaque</h2>
+            <div id="featured-carousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators" id="carousel-indicators"></div>
+                <div class="carousel-inner" id="carousel-inner"></div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#featured-carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#featured-carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
             </div>
         </section>
 
-        <section id="product-catalog" class="product-grid container"></section>
+        <section class="search-filter-section mt-5">
+            <h2>Explore nosso Catálogo</h2>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="searchInput">Buscar por Nome:</label>
+                    <input type="text" id="searchInput" placeholder="Digite para buscar...">
+                </div>
+                <div class="filter-group">
+                    <label for="categoryFilter">Categoria:</label>
+                    <select id="categoryFilter">
+                        <option value="all">Todas as Categorias</option>
+                        <option value="jogo">Jogos</option>
+                        <option value="acessorio">Acessórios</option>
+                    </select>
+                </div>
+                <div class="filter-group" id="genre-filter-group" style="display: none;">
+                    <label for="genreFilter">Gênero:</label>
+                    <select id="genreFilter">
+                        <option value="all">Todos os Gêneros</option>
+                    </select>
+                </div>
+                <div class="filter-group" id="platform-filter-group" style="display: none;">
+                    <label for="platformFilter">Plataforma:</label>
+                    <select id="platformFilter">
+                        <option value="all">Todas as Plataformas</option>
+                    </select>
+                </div>
+                <div class="filter-group" id="type-filter-group" style="display: none;">
+                    <label for="typeFilter">Tipo:</label>
+                    <select id="typeFilter">
+                        <option value="all">Todos os Tipos</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section id="product-catalog" class="product-grid"></section>
     </main>
 
     <footer>
         <p>&copy; 2025 GameStore. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/scripts/principal.js"></script>
 </body>
 </html>

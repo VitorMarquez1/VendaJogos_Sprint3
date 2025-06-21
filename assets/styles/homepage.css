@@ -1,23 +1,62 @@
+/* --- PAINEL DE FILTROS MODERNIZADO --- */
+
 .search-filter-section {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.filters {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.filters input, .filters select {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid var(--light-gray);
     background-color: var(--surface-color);
-    color: var(--text-color);
-    min-width: 200px;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    border: 1px solid var(--light-gray);
 }
+
+.search-filter-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+/* Usando CSS Grid para um layout mais robusto e responsivo */
+.filters {
+    display: grid;
+    /* Cria colunas que se ajustam automaticamente ao espaço disponível */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Cada grupo de filtro agora é um bloco vertical */
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    margin-bottom: 0.5rem;
+    font-size: 0.9em;
+    font-weight: normal;
+    color: #ccc;
+    text-align: left;
+}
+
+/* Estilo unificado e moderno para inputs e selects */
+.filter-group input,
+.filter-group select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #2a2a2e;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.4);
+}
+
+/* --- GRID DE PRODUTOS (Sem alterações) --- */
 
 .product-grid {
     display: grid;
@@ -69,4 +108,28 @@
 
 .product-card a {
     margin-top: 1rem;
+}
+
+/* --- ESTILOS DO CARROSSEL (Sem alterações) --- */
+
+#featured-carousel .carousel-inner {
+    border-radius: 8px;
+    max-height: 50vh;
+}
+
+#featured-carousel .carousel-item img {
+    object-fit: cover;
+    height: 50vh;
+    filter: brightness(0.7);
+}
+
+#featured-carousel .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+#featured-carousel a {
+    text-decoration: none;
+    color: inherit;
 }

@@ -20,10 +20,25 @@
                 <h2>Resumo do Pedido</h2>
                 <div id="summary-items"></div>
                 <hr>
+                <div id="summary-subtotal"></div>
+                <div id="summary-discount" style="color: var(--success-color);"></div>
+                <div id="summary-shipping"></div>
+                <hr>
                 <div id="summary-total"></div>
             </div>
 
             <form id="checkout-form" class="auth-form">
+                
+                <div id="shipping-section" style="display: none;">
+                    <h2>Endereço de Entrega</h2>
+                    <div class="form-group">
+                        <label for="cep-input">CEP</label>
+                        <input type="text" id="cep-input" placeholder="00000-000">
+                    </div>
+                     <button type="button" id="calculate-shipping-btn" class="btn">Calcular Frete</button>
+                    <div id="shipping-result" style="margin-top: 1rem;"></div>
+                </div>
+
                 <h2>Forma de Pagamento</h2>
                 <div class="payment-methods">
                     <label><input type="radio" name="paymentMethod" value="pix" checked> Pix</label>
@@ -62,13 +77,14 @@
                             <input type="text" id="card-cvv" placeholder="123">
                         </div>
                     </div>
-                     <div class="form-group" id="installments-group">
+                     <div class="form-group" id="installments-group" style="display: none;">
                         <label for="installments">Parcelas</label>
                         <select id="installments">
                             <option value="1">1x sem juros</option>
                             <option value="2">2x sem juros</option>
                             <option value="3">3x sem juros</option>
                         </select>
+                        <small id="installment-value" style="margin-left: 10px;"></small>
                     </div>
                 </div>
 

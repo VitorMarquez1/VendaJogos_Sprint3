@@ -16,6 +16,7 @@
     font-weight: bold;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 0.5rem;
 }
 .order-item {
     padding-left: 1rem;
@@ -23,14 +24,39 @@
     color: #bbb;
 }
 
-/* Reutilizando a classe da homepage para consistência */
+.order-detail {
+    font-size: 0.8rem;
+    color: #999;
+    padding-left: 2rem;
+    margin-top: 4px;
+}
+.order-detail strong {
+    color: var(--secondary-color);
+}
+.delivery-info {
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: 1px dashed var(--light-gray);
+    color: #ccc;
+}
+
+/* NOVO: Estilo para a informação de pagamento */
+.payment-info {
+    color: #ccc;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+.payment-info strong {
+    color: var(--success-color);
+}
+
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
 }
 
-/* Container para alinhar os botões na wishlist */
 .wishlist-buttons {
     margin-top: 1rem;
     display: flex;
@@ -38,7 +64,6 @@
     gap: 10px;
 }
 
-/* Estilo para o botão de remover da wishlist */
 .btn-remove-wishlist {
-    background: #c0392b; /* Vermelho */
+    background: #c0392b;
 }

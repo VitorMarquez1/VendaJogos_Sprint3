@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos (Admin)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/global.css">
+    <link rel="stylesheet" href="assets/styles/crud.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">GameStore</a>
+        <nav id="nav-links"></nav>
+    </header>
+
+    <main class="container">
+        <h1>Gerenciamento de Produtos</h1>
+
+        <div class="crud-container">
+            <section class="form-section">
+                <h2>Formulário de Produto</h2>
+                <form id="crud-form">
+                    <input type="hidden" id="productId">
+                    <div class="form-group"><label for="name">Nome do Produto</label><input type="text" id="name" required></div>
+                    <div class="form-group"><label for="price">Preço (ex: 199.99)</label><input type="number" step="0.01" id="price" required></div>
+                    <div class="form-group"><label for="description">Descrição</label><textarea id="description" rows="3" required></textarea></div>
+                    <div class="form-group"><label for="image">URL da Imagem</label><input type="text" id="image" required></div>
+                    <div class="form-group"><label for="stock">Estoque</label><input type="number" id="stock" required></div>
+                    <div class="form-group"><label for="category">Categoria</label><select id="category" required><option value="jogo">Jogo</option><option value="acessorio">Acessório</option></select></div>
+                    <div class="form-group" id="genre-group"><label for="genre">Gênero (para Jogos)</label><input type="text" id="genre"></div>
+                    <div class="form-group" id="type-group"><label for="type">Tipo (para Acessórios)</label><input type="text" id="type"></div>
+                    <div class="form-group"><label for="platform">Plataforma(s) (separar com ' / ')</label><input type="text" id="platform"></div>
+                    
+                    <div class="form-check mt-3">
+                        <input class="form-check-input" type="checkbox" id="featured">
+                        <label class="form-check-label" for="featured">Marcar como Destaque</label>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="button" id="btn-insert" class="btn">Inserir</button>
+                        <button type="button" id="btn-update" class="btn btn-secondary">Alterar</button>
+                        <button type="button" id="btn-delete" class="btn btn-danger">Excluir</button>
+                        <button type="button" id="btn-clear" class="btn btn-light">Limpar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="list-section">
+                <h2>Lista de Produtos</h2>
+                <div id="product-list-container"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer><p>&copy; 2025 GameStore. Todos os direitos reservados.</p></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/scripts/crud.js"></script>
+</body>
+</html>
